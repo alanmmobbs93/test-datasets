@@ -1,0 +1,931 @@
+
+================================================
+Software version: fusioncatcher.py 1.33
+================================================
+
+
+===================================
+GENOME INFORMATION:
+===================================
+fusioncatcher-build.py 1.33
+Ensembl database version: 102
+Organism: Homo sapiens
+Genome version: GRCh38
+NCBI Viral Genomes version: 2020-11-07
+UCSC database version (hg38): 2019-10-13
+RefSeq NCBI database version (downloaded thru UCSC database; hg38): 2020-09-13
+Non-cancer tissues and cells (Babiceanu et al. Nucl. Acids Res. 2016) database version: 2020-12-21
+Cancer Gene List database version: 2020-12-21
+Oncogenes database version: 2020-12-21
+TumorFusions (Hu et al. Nucleic Acids Research) database version: Nov. 2017
+TCGA Fusions Dataset (Qingsong G., Cell Reports, 2018) version: April 2018
+DepMap Portal: 2020-12-21
+Prostate Tumor Patients (Robison et al. Cell 2015) database version: 2020-12-21
+Pancreatic Tumor Patients (Bailey et al. Nature 2016) database version: 2020-12-21
+ChimerDB database version: 2.0
+ChimerDB database version: 4.0
+TICdb database version: 2020-12-21
+ConjoinG database version: 2020-12-21
+CGP database version: 2020-12-21
+CACG database version: 2020-12-21
+PCAWG database version: 1.0
+DGD database version: 2020-12-21
+Mitelman database version: 2020-12-21
+GTEx database version (thru FusionAnnotator): 2020-12-21
+OncoKB (Chakravarty et al., JCO PO 2017): 2020-12-21
+
+===================================
+Genome FASTA files:
+===================================
+ftp.ensembl.org//pub/release-102/fasta/homo_sapiens/dna/Homo_sapiens.GRCh38.dna.primary_assembly.fa
+
+
+
+
+Linux:
+------
+Ubuntu 24.04.1 LTS \n \l
+
+
+Python:
+------
+Python version: 2.7.15 | packaged by conda-forge | (default, Mar  5 2020, 14:56:06) 
+[GCC 7.3.0]
+Python executable: /opt/conda/bin/python
+
+BioPython:
+------
+1.76
+
+===========
+TOOLS:
+===========
+
+SORT:
+------
+sort (GNU coreutils) 9.5
+
+BOWTIE:
+------
+/opt/conda/bin/bowtie-align-s version 1.2.3
+64-bit
+
+BBMAP:
+------
+38.44
+
+PIGZ:
+------
+pigz 2.3.4
+
+PXZ:
+------
+
+fastq-dump (from SRA Toolkit):
+--------------
+fastq-dump : 2.9.6
+
+GNU Parallel:
+--------------
+GNU parallel 20171222
+
+SAMTools:
+---------
+Version: 0.1.19-96b5f2294a
+
+Java:
+---------
+
+liftOver:
+---------
+liftOver - Move annotations from one assembly to another
+
+SeqTK:
+---------
+Version: 1.2-r101c-dirty
+
+fastqtk:
+---------
+Version: 0.27
+
+sed:
+---------
+sed (GNU sed) 4.9
+
+awk:
+---------
+mawk 1.3.4 20240123
+
+STAR:
+------
+2.7.2b
+
+
+BOWTIE2:
+------
+/opt/conda/bin/bowtie2-align-s version 2.3.5.1
+64-bit
+
+
+
+Pipeline parameters:
+====================
+aligners = /opt/conda/etc/configuration.cfg,blat,star
+all_reads_junction = False
+ambiguous_filtering = False
+ambiguous_mismatches = 2
+assembly = False
+batch_mode = False
+biotypes = 1000genomes,7skrna,ambiguous,banned,bodymap2,conjoing,cta,ctb,ctc,ctd,dist1000bp,ensembl_fully_overlapping,ensembl_same_strand_overlapping,fragments,healthy,hla,hpa,metazoa,mirna,mt,multi,pair_pseudo_genes,paralogs,refseq_fully_overlapping,refseq_same_strand_overlapping,removed,rp,rp11,rrna,similar_reads,similar_symbols,snorna,snrna,trna,yrna
+bridges = 0
+checksums_filename = checksums.txt
+chunkmbs = 128
+compress_transcripts = False
+configuration_filename = /opt/conda/etc/configuration.cfg,/opt/conda/bin/configuration.cfg
+data_directory = human_v102
+extract_buffer_size = 1000000000
+ff_tryhard = False
+filter_mismatches = 2
+filter_str = 0
+force_paths = False
+gap_wiggle_size = 2
+hash = no
+homolog = 1.25e-05
+input_filename = input
+keep_preliminary = False
+keep_temporary_files = False
+keep_unmapped_reads = False
+keep_viruses = False
+length_anchor = 17,17,17,17,40
+length_anchor2 = 47
+length_anchor_gap = 17
+length_anchor_gap_max = 100
+length_gap = 21
+limitOutSJcollapsed = 1000000
+limitSjdbInsertNsj = 2000000
+limit_blat = 3221225472
+limit_bowtie = 4294867296
+limit_bowtie2 = 30000000
+limit_star = 500000000
+long_report = False
+min_dist = 200000
+mismatches = 2
+mismatches_gap = 7
+mismatches_psl = 2
+output_directory = .
+paranoid_sensitive = False
+prefilter = 1
+processes = 4
+psl_visualization = False
+reads = 0
+reads_preliminary_fusions = False
+rescue_gap_size = 0
+rescue_wiggle_size = 0
+sam_visualization = False
+single_end = False
+skip_adapter_filtering = False
+skip_adjacent = False
+skip_automatic_scaling = False
+skip_b_filtering = False
+skip_banned_fusions = False
+skip_bbmerge = False
+skip_bbmerge_auto = False
+skip_blat = True
+skip_bowtie2 = True
+skip_compress_ids = False
+skip_conversion_grch37 = False
+skip_deduplication = False
+skip_extension = False
+skip_fastqtk = False
+skip_filter_low_entropy = False
+skip_genome_filtering = False
+skip_genome_transcriptome_filtering = False
+skip_ig_star = False
+skip_interleave_processing = False
+skip_known_fusions = False
+skip_mitochondrion_filtering = False
+skip_parsort = False
+skip_prefiltering_blat = False
+skip_prefiltering_psl = False
+skip_spotlight = False
+skip_star = False
+skip_star_bowtie = False
+skip_trim_multiple_5 = False
+skip_unmapped_pairs_filtering = False
+skip_update_check = False
+skip_viruses_filtering = False
+sonication = 130
+sort_buffer_size = 80%
+spanning_pairs = 3,3,3,3,3
+spanning_pairs_count = 8000
+spanning_reads = 2,2,2,2,2
+split_seqtk_subseq = 1
+start_step = 0
+tmp_directory = /cfs/moebbs/NEXTFLOW_CODE/rnafusion/.nf-test/tests/afb039775a31dce7cd9eee33eaf96b5d/work/51/5e11027da4d5db0e09105ad806d544/tmp
+trim_3end = 0
+trim_3end_keep = 60
+trim_3end_keep2 = 23
+trim_5end = 0
+trim_blat = False
+trim_psl = False
+trim_psl_3end_keep = 82
+trim_psl_5end = False
+trim_quality = 5
+trim_wiggle = 0
+trimfq = 1.0
+xmx = 18g
+main_script = /opt/conda/bin/fusioncatcher.py
+main_script_version = 1.33
+
+Current working directory:
+---------------------------
+/cfs/moebbs/NEXTFLOW_CODE/rnafusion/.nf-test/tests/afb039775a31dce7cd9eee33eaf96b5d/work/51/5e11027da4d5db0e09105ad806d544
+
+Command line used for launching FusionCatcher:
+----------------------------------------------
+/opt/conda/bin/fusioncatcher.py \ 
+-d \ 
+human_v102 \ 
+-i \ 
+input \ 
+-p \ 
+4 \ 
+-o \ 
+. \ 
+--skip-blat \ 
+--limitSjdbInsertNsj \ 
+2000000
+----------------------------------------------
+
+
+
+Shebang for Python scripts:
+---------------------------
+#!/usr/bin/env python
+
+
+
+
+===================
+CONFIGURATION.CFG:
+===================
+[paths]
+python = /opt/conda/bin/
+#
+# for changing the shebang for all Python scripts used by FusionCatcher 
+# to '#!/some/other/python'
+# one could run 'fusioncatcher/bin/shebang.py' -s #!/some/other/python
+#
+data = ${FC_DB_PATH}/current/
+scripts = /opt/conda/bin/
+bowtie = /opt/conda/bin/
+bowtie2 = /opt/conda/bin/
+blat = /opt/conda/bin/
+bbmap = /opt/conda/bin/
+liftover = /opt/conda/bin/
+#velvet = ../tools/velvet/
+#oases = ../tools/oases/
+fatotwobit = /opt/conda/bin/
+seqtk = /opt/conda/bin/
+star = /opt/conda/bin/
+sra = /opt/conda/bin/
+biopython = /opt/conda/lib/python*/site-packages/
+parallel = /opt/conda/bin/
+pigz = /opt/conda/bin/
+picard = /opt/conda/bin/
+fastqtk = /opt/conda/bin/
+#python3 = /usr/bin/
+java = /opt/conda/bin/
+
+[parameters]
+threads = 0
+aligners = blat,star
+
+[versions]
+fusioncatcher = 1.33
+
+
+
+
+
+
+
+
+
+
+============
+DATA DIRECTORY:
+============
+/cfs/moebbs/NEXTFLOW_CODE/rnafusion/.nf-test/tests/afb039775a31dce7cd9eee33eaf96b5d/work/51/5e11027da4d5db0e09105ad806d544/human_v102/
+It links to:
+/cfs/moebbs/NEXTFLOW_CODE/reference_rnafusion/human_v102
+
+
+
+============
+MEMORY:
+============
+               total        used        free      shared  buff/cache   available
+Mem:          772197       46412      158612        3039      574797      725784
+Swap:           4095          58        4037
+
+Total installed RAM memory = 772197 MB
+
+
+
+Input files (which contain the short reads):
+--------------------------------------------
+/cfs/moebbs/NEXTFLOW_CODE/rnafusion/.nf-test/tests/afb039775a31dce7cd9eee33eaf96b5d/work/51/5e11027da4d5db0e09105ad806d544/input/reads_1.fq.gz
+/cfs/moebbs/NEXTFLOW_CODE/rnafusion/.nf-test/tests/afb039775a31dce7cd9eee33eaf96b5d/work/51/5e11027da4d5db0e09105ad806d544/input/reads_2.fq.gz
+
+
+
+Longest read (fast computation)
+--------------------------------
+101
+
+
+
+Super fast pre-filtering -- transcriptome:
+------------------------------------------
+Time loading reference: 00:00:01
+Time loading forward index: 00:00:00
+Time loading mirror index: 00:00:01
+Seeded quality full-index search: 00:00:00
+# reads processed: 12546
+# reads with at least one reported alignment: 9475 (75.52%)
+# reads that failed to align: 3071 (24.48%)
+Reported 9475 paired-end alignments
+Time searching: 00:00:02
+Overall time: 00:00:02
+
+
+
+
+
+First 8 lines of input FASTQ file: /cfs/moebbs/NEXTFLOW_CODE/rnafusion/.nf-test/tests/afb039775a31dce7cd9eee33eaf96b5d/work/51/5e11027da4d5db0e09105ad806d544/init-1_blox-0_2.fq
+-------------------------
+@00B
+CGGATAATGACTCAGTGCTGGCAACATCAGCCTGAAGACAGGCACAACTTTGCCATCATTTTGGAGAGGATTGAATACTGCACCCAGGACCCGGATGTAAT
++
+1;8:B)=DD>D:AEB:C:AC<<FFI99F9+:E@>EDAADDCCDDIDCDEBDDDADAD@CEIEII;AE;;=A?;AAADA;>(;;A??5=?<??==;90(+::
+@00W
+ATATCAGATCCGAACTACACCTTCAGCTACTTCTCTGCCACAAACTGTGGTGCTGACATCTCCTGTGACTCCCACCTCTCAGACAACTAAGACAGATGACC
++
+<@@<DADDFAF322<C3CCF?G>GG@<?4?DGA?<?@9@@>D?9??FBBFD;*/BF;C<FF:=F>.=;@AC)6??=9;;;(>((655>;;;@>:<ABA::A
+
+
+First 8 lines of input FASTQ file: /cfs/moebbs/NEXTFLOW_CODE/rnafusion/.nf-test/tests/afb039775a31dce7cd9eee33eaf96b5d/work/51/5e11027da4d5db0e09105ad806d544/init-0_blox-0_1.fq
+-------------------------
+@00B
+GTTGATTACATCCGGGTCCTGGGTGCAGTATTCAATCCTCTCCAAAATGATGGCAAAGTTGTGCCTGTCTTCAGGCTGATGTTGCCAGCACTGAGTCATT
++
+@?@DDDDDBDFFAFEAG?EA?BF+?=EB1?DF>BEFCF@DDCCCGICD?FCC@@FFFEGII@EEFCAECAE??DD;?B;@A;>CCBBBBBBB?BB5:ABD
+@00W
+ACATTCTCGAGCAGCTTCTCTGTTTTTCATTAACCTTATTTCTCTTTTCAATTGGGGGACATCTGTTTTAGTTGTCTGAGAGGTGAGAGTCACAGGAGATG
++
+=?:A;4BD=FAA6;E9E>CHC?HC9EB>9EE9?C9?9?CFH@<4?FGI**9?*?<8@:'-5C==?E)7=;B@BDE>;AA(;@(-,;?::(5,>>:(<<AC>
+
+
+Last 8 lines of input FASTQ file: /cfs/moebbs/NEXTFLOW_CODE/rnafusion/.nf-test/tests/afb039775a31dce7cd9eee33eaf96b5d/work/51/5e11027da4d5db0e09105ad806d544/init-1_blox-0_2.fq
+-------------------------
+@9NY
+CCAGCATGGCCAGGGAGGAGGGCTGGCTCGGGCGAGGGCGGGTCTCTCGGAGGAAGGACTTGAGGTCTCCCCCCGCCATGAGCTCCAGCAGGATGAACCGG
++
+CCCFFFFFHGHHHJJGIJGIJJJIIIIAHHIJJJIIHDFDDDDDCDDDDDBDDBDDBBDCDDDDDDDDDDDDDDDDDDDDDDDCDDDDDDDD?CDDCCBBB
+@9NZ
+GTTGAAGTGTGGTTCAGGGCCAGTGCATATTAGTGGACAGCACTTAGTAGTGTACCGCCGGAAGCACCAGGAGCTGCAAGCCATGCAGATGGAGCTGCAGA
++
+@@@;DDFABAFDHGJIIGHGGCHBFGCHGHFIICGAEGIGIHIEGII9BF<BB@<FHIHIHH/9BCE?B(=??B?CDCC><@C@CC>++,:@CBABCC###
+
+
+Last 8 lines of input FASTQ file: /cfs/moebbs/NEXTFLOW_CODE/rnafusion/.nf-test/tests/afb039775a31dce7cd9eee33eaf96b5d/work/51/5e11027da4d5db0e09105ad806d544/init-0_blox-0_1.fq
+-------------------------
+@9NY
+GTTGAAGTGTGGTTCAGGGCCAGTGCATATTAGTGGACAGCACTTAGTAGTGTACCGCCGGAAGCACCAGGAGCTGCAAGCCATGCAGATGGAGCTGCAGA
++
+CCCFFFFFHHHHHJJJJJJJJJJIJJJJJJJJJIJJJJJJJJJJJJJIJJIIIIJJIJJJHHFFFEEDEDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD@
+@9NZ
+AGGATGAACCGGGGCAGGGATTGCAGGCTCACCCCAATGCAGCGAACAATGTTCTGGTGGTTGAATTTGCTGATGATCAGGGCTTCCATGAGGAAATCCAG
++
+??@DDFFFHFHHHIJJJJJIJGII@HIHIJIJJJJJJIJJIJCH=EFDEAEEDDEDDCCD?@BDCCCCDCCDCCCCDDEDCA?A?CDDEDDDDC<CC(:AC
+
+
+
+Pair-reads overlappings (after padding):
+----------------------------------------
+Input FASTQ file 1: /cfs/moebbs/NEXTFLOW_CODE/rnafusion/.nf-test/tests/afb039775a31dce7cd9eee33eaf96b5d/work/51/5e11027da4d5db0e09105ad806d544/init-f-0_blox-0_1.fq
+Input FASTQ file 2: /cfs/moebbs/NEXTFLOW_CODE/rnafusion/.nf-test/tests/afb039775a31dce7cd9eee33eaf96b5d/work/51/5e11027da4d5db0e09105ad806d544/init-r-1_blox-0_2.fq
+Length read 1: 101
+Length read 2: 101
+Minimum overlapping size considered by the program: 13
+Total count pair-reads: 4150 [100.000%]
+Total count reads: 8300 [200.000%]
+Count pair-reads overlapping: 1057 [25.470%]
+Count total wasted nucleotides (due to overlappings): 82249 [9.811%]
+Most common fragment size amont overlapping pair-reads: 108
+Count of the most common fragment size among overlapping pair-reads: 46
+
+Fragment_length	pair-reads_counts	pair-reads_percentage	Cumulative_pair-reads_percentage
+47	1	0.024%	0.024%
+50	1	0.024%	0.048%
+51	1	0.024%	0.072%
+60	1	0.024%	0.096%
+65	2	0.048%	0.145%
+66	3	0.072%	0.217%
+68	2	0.048%	0.265%
+72	1	0.024%	0.289%
+73	4	0.096%	0.386%
+74	2	0.048%	0.434%
+75	1	0.024%	0.458%
+76	2	0.048%	0.506%
+77	1	0.024%	0.530%
+78	1	0.024%	0.554%
+79	3	0.072%	0.627%
+80	4	0.096%	0.723%
+81	7	0.169%	0.892%
+82	6	0.145%	1.036%
+83	3	0.072%	1.108%
+84	1	0.024%	1.133%
+85	5	0.120%	1.253%
+86	3	0.072%	1.325%
+87	9	0.217%	1.542%
+88	13	0.313%	1.855%
+89	5	0.120%	1.976%
+90	8	0.193%	2.169%
+91	7	0.169%	2.337%
+92	11	0.265%	2.602%
+93	12	0.289%	2.892%
+94	8	0.193%	3.084%
+95	12	0.289%	3.373%
+96	14	0.337%	3.711%
+97	11	0.265%	3.976%
+98	13	0.313%	4.289%
+99	19	0.458%	4.747%
+100	26	0.627%	5.373%
+101	25	0.602%	5.976%
+102	15	0.361%	6.337%
+103	23	0.554%	6.892%
+104	26	0.627%	7.518%
+105	28	0.675%	8.193%
+106	44	1.060%	9.253%
+107	36	0.867%	10.120%
+108	46	1.108%	11.229%
+109	41	0.988%	12.217%
+110	41	0.988%	13.205%
+111	29	0.699%	13.904%
+112	3	0.072%	13.976%
+113	2	0.048%	14.024%
+114	3	0.072%	14.096%
+115	1	0.024%	14.120%
+116	4	0.096%	14.217%
+117	4	0.096%	14.313%
+118	3	0.072%	14.386%
+119	7	0.169%	14.554%
+120	6	0.145%	14.699%
+121	2	0.048%	14.747%
+123	4	0.096%	14.843%
+124	9	0.217%	15.060%
+125	2	0.048%	15.108%
+126	9	0.217%	15.325%
+127	5	0.120%	15.446%
+128	2	0.048%	15.494%
+129	5	0.120%	15.614%
+130	4	0.096%	15.711%
+131	4	0.096%	15.807%
+132	4	0.096%	15.904%
+133	4	0.096%	16.000%
+134	7	0.169%	16.169%
+135	5	0.120%	16.289%
+136	4	0.096%	16.386%
+137	6	0.145%	16.530%
+138	5	0.120%	16.651%
+139	7	0.169%	16.819%
+140	8	0.193%	17.012%
+141	6	0.145%	17.157%
+142	8	0.193%	17.349%
+143	5	0.120%	17.470%
+144	5	0.120%	17.590%
+145	13	0.313%	17.904%
+146	13	0.313%	18.217%
+147	3	0.072%	18.289%
+148	12	0.289%	18.578%
+149	6	0.145%	18.723%
+150	7	0.169%	18.892%
+151	8	0.193%	19.084%
+152	2	0.048%	19.133%
+153	21	0.506%	19.639%
+154	7	0.169%	19.807%
+155	15	0.361%	20.169%
+156	11	0.265%	20.434%
+157	6	0.145%	20.578%
+158	5	0.120%	20.699%
+159	6	0.145%	20.843%
+160	7	0.169%	21.012%
+161	10	0.241%	21.253%
+162	8	0.193%	21.446%
+163	16	0.386%	21.831%
+164	6	0.145%	21.976%
+165	7	0.169%	22.145%
+166	5	0.120%	22.265%
+167	9	0.217%	22.482%
+168	12	0.289%	22.771%
+169	6	0.145%	22.916%
+170	4	0.096%	23.012%
+171	5	0.120%	23.133%
+172	12	0.289%	23.422%
+173	4	0.096%	23.518%
+174	8	0.193%	23.711%
+175	10	0.241%	23.952%
+176	6	0.145%	24.096%
+177	2	0.048%	24.145%
+178	7	0.169%	24.313%
+179	7	0.169%	24.482%
+180	6	0.145%	24.627%
+181	3	0.072%	24.699%
+182	5	0.120%	24.819%
+183	3	0.072%	24.892%
+184	4	0.096%	24.988%
+185	4	0.096%	25.084%
+186	13	0.313%	25.398%
+187	1	0.024%	25.422%
+188	2	0.048%	25.470%
+>188	3093	74.530%	100.000%
+
+
+
+
+
+Adapters information:
+--------------------
+Reading the files for automated finding of adapters...
+ -  /cfs/moebbs/NEXTFLOW_CODE/rnafusion/.nf-test/tests/afb039775a31dce7cd9eee33eaf96b5d/work/51/5e11027da4d5db0e09105ad806d544/init-f-0_blox-0_1.fq
+ -  /cfs/moebbs/NEXTFLOW_CODE/rnafusion/.nf-test/tests/afb039775a31dce7cd9eee33eaf96b5d/work/51/5e11027da4d5db0e09105ad806d544/init-r-1_blox-0_2.fq
+Found [AGATCGGAAGAGC...]
+   [reverse-complement=...GCTCTTCCGATCT]
+   [count=2/3000000 (0.00007%)] but does not look like 3-end adapter! (too low count)
+Found [CTTGTCTTTCTCC...]
+   [reverse-complement=...GGAGAAAGACAAG]
+   [count=1/3000000 (0.00003%)] but does not look like 5-end adapter! (too low count)
+NOTE: Too few adapters found in order to use several processes! Only one CPU will be used!
+Using 1 process(es)...
+No trimming was done !
+NOTE: In case that it is known a priori that there are adaptors then 
+      try to run it again with a shorter adapter, see '--len_adapter' 
+      of 'remove_adapter.py'!
+
+
+
+Reads (mate 1 from pair) removed because being marked as bad by Illumina:
+-------------------------------------------------------------------------
+No changes are done (all reads are kept)!
+
+
+
+Reads (mate 2 from pair) removed because being marked as bad by Illumina:
+-------------------------------------------------------------------------
+No changes are done (all reads are kept)!
+
+
+
+
+
+
+
+Total Count of reads (from all FASTQ files given as input and before any read removal is done, i.e. quality filtering, pre-processing):
+--------------
+/cfs/moebbs/NEXTFLOW_CODE/rnafusion/.nf-test/tests/afb039775a31dce7cd9eee33eaf96b5d/work/51/5e11027da4d5db0e09105ad806d544/init-shuffle-sra-clear-noadapt-0_blox-0.fq = 6142
+
+
+
+Length of all original reads:
+-----------------------------
+100
+
+
+
+------------------------------------------------------------------------------------------------------
+Total counts of all input/original reads (reads marked by Illumina as bad are not included here):
+------------------------------------------------------------------------------------------------------
+5786
+
+------------------------------------------------------------------------------------------------------
+
+Lengths of all reads after trimming:
+------------------------------------
+60
+
+
+
+Found 13 reads with poly-A/C/G/T/N tails (equal or more 16 repeat nucleotides)
+Total number of input reads = 5786
+Total number of reads written in the output = 5783
+
+
+Count of all short reads after removing reads due to missing their mate read:
+-----------------------------------------------------------------------------
+5754
+
+
+
+
+Adjusted automatically spanning_pairs, spanning_reads, and length_anchor (2,2,17,40) for count of reads [1000000,20000000) and reads longer than 74 bp.
+
+
+============
+MEMORY (before using BOWTIE):
+============
+               total        used        free      shared  buff/cache   available
+Mem:          772197       46512      158509        3039      574800      725684
+Swap:           4095          58        4037
+
+
+
+Mapping all input reads on rRNA and/or MT for filtering purposes:
+----------------------------------------------------------------
+Time loading forward index: 00:00:00
+Time loading mirror index: 00:00:00
+Seeded quality full-index search: 00:00:00
+# reads processed: 5754
+# reads with at least one reported alignment: 21 (0.36%)
+# reads that failed to align: 5733 (99.64%)
+Reported 21 alignments
+Time searching: 00:00:00
+Overall time: 00:00:00
+
+
+
+
+
+Count of all short reads after removing reads due to missing their mate read:
+-----------------------------------------------------------------------------
+5712
+
+
+
+Total Reads Counts (after the all filtering steps):
+---------------------------------------------------
+5712
+
+
+
+Mapping the filtered reads on genome:
+-------------------------------------
+Time loading forward index: 00:00:03
+Time for 0-mismatch search: 00:00:00
+# reads processed: 5712
+# reads with at least one reported alignment: 2936 (51.40%)
+# reads that failed to align: 2776 (48.60%)
+Reported 3024 alignments
+Time searching: 00:00:03
+Overall time: 00:00:03
+
+
+
+Mapping on transcriptome the filtered reads which did not map on genome:
+------------------------------------------------------------------------
+Time loading forward index: 00:00:01
+Time loading mirror index: 00:00:00
+End-to-end 2/3-mismatch full-index search: 00:00:00
+# reads processed: 2776
+# reads with at least one reported alignment: 1798 (64.77%)
+# reads that failed to align: 978 (35.23%)
+Reported 11612 alignments
+Time searching: 00:00:01
+Overall time: 00:00:01
+
+
+
+Mapping on transcriptome the filtered reads which map uniquely on genome:
+------------------------------------------------------------------------
+Time loading forward index: 00:00:00
+Time loading mirror index: 00:00:00
+End-to-end 2/3-mismatch full-index search: 00:00:01
+# reads processed: 2936
+# reads with at least one reported alignment: 2910 (99.11%)
+# reads that failed to align: 26 (0.89%)
+Reported 19890 alignments
+Time searching: 00:00:01
+Overall time: 00:00:01
+
+
+
+All mappings of reads (not mapped on genome + mapped uniquely on genome + mapped on transcriptome) on transcriptome
+-------------------------------------------------------------------------------------------------------------------
+Time loading forward index: 00:00:00
+Time loading mirror index: 00:00:01
+End-to-end 2/3-mismatch full-index search: 00:00:00
+# reads processed: 4707
+# reads with at least one reported alignment: 4707 (100.00%)
+# reads that failed to align: 0 (0.00%)
+Reported 31958 alignments
+Time searching: 00:00:01
+Overall time: 00:00:01
+
+
+
+Threshold for pairs of genes to be marked as 'similar_reads' (reference number: 2936)
+-----------------------------------------------------------------------------------------
+0
+
+
+
+
+
+
+From a total of 978 unmapped reads, 60 (6.1350%) were removed because are (unmapped) pairs.
+
+
+
+
+Mapping all input reads on viruses genomes database for filtering purposes:
+--------------------------------------------------------------------------------
+Time loading forward index: 00:00:00
+Time loading mirror index: 00:00:00
+Seeded quality full-index search: 00:00:00
+# reads processed: 865
+# reads with at least one reported alignment: 0 (0.00%)
+# reads that failed to align: 865 (100.00%)
+No alignments
+Time searching: 00:00:00
+Overall time: 00:00:00
+
+
+
+Viruses found to have reads mapped on their genomes:
+----------------------------------------------------
+Reads_count	Organism
+
+
+
+Mapping all trimmed unmapped reads again on genome for filtering purposes:
+-------------------------------------------------------------------------
+Time loading forward index: 00:00:03
+Time for 0-mismatch search: 00:00:00
+# reads processed: 865
+# reads with at least one reported alignment: 6 (0.69%)
+# reads that failed to align: 859 (99.31%)
+Reported 6 alignments
+Time searching: 00:00:03
+Overall time: 00:00:03
+
+
+
+
+
+Filtering reads which do not have their mate-read mapping on any candidate fusion gene:
+--------------------------------------------------------
+From a total of 859 read(s), 840 read(s) are left after filtering.
+
+
+Counts of reads before BLAT/STAR/BOWTIE2 alignment:
+----------------------------------------------------------
+3172
+
+
+
+
+Reads Counts after BLAT/STAR/BOWTIE2 prefiltering (and before alignment):
+--------------------------------------------------------------------------------
+3158
+
+
+
+Lengths of all reads before BLAT/STAR/BOWTIE2 alignment
+-----------------------------------------------------------
+100
+99
+98
+96
+95
+94
+93
+92
+91
+90
+89
+88
+87
+86
+85
+84
+83
+82
+81
+80
+79
+78
+77
+76
+75
+74
+73
+72
+71
+70
+69
+68
+67
+66
+65
+64
+63
+62
+61
+60
+
+
+
+Count of all reads before BLAT/STAR/BOWTIE2 alignment
+---------------------------------------------------------
+3158
+
+
+
+
+============
+MEMORY (before using STAR):
+============
+               total        used        free      shared  buff/cache   available
+Mem:          772197       47179      157556        3058      575105      725017
+Swap:           4095          58        4037
+
+
+
+Candidate fusions removed due to PolyA/C/G/T and long repeats:
+===============================================
+
+
+Candidate fusions removed due to banned fusion sequences: 
+--------------------------------
+Gene_1_symbol(5end_fusion_partner)	Gene_2_symbol(3end_fusion_partner)	Fusion_description	Counts_of_common_mapping_reads	Spanning_pairs	Spanning_unique_reads	Longest_anchor_found	Fusion_finding_method	Fusion_point_for_gene_1(5end_fusion_partner)	Fusion_point_for_gene_2(3end_fusion_partner)	Gene_1_id(5end_fusion_partner)	Gene_2_id(3end_fusion_partner)	Exon_1_id(5end_fusion_partner)	Exon_2_id(3end_fusion_partner)	Fusion_sequence
+
+
+
+===========================================
+Preliminary list of candidate fusion genes:
+===========================================
+Fusion_gene_1	Fusion_gene_2	Count_paired-end_reads	Fusion_gene_symbol_1	Fusion_gene_symbol_2	Fusion_description	Analysis_status	Counts_of_common_mapping_reads
+ENSG00000013810	ENSG00000068078	857	TACC3	FGFR3	known,adjacent,short_distance,dist100kbp,oncogene,cosmic,ticdb,tcga,ccle2,dist200kbp,18cancers,gliomas,chimer4kb,chimer4pub,chimer4seq,cancer,tcga-cancer,tcga2,oncokb,mitelman,pcawg,ccle,tcga3,t37,tcga-oesophagus	further_analysis	0
+ENSG00000134853	ENSG00000145216	118	PDGFRA	FIP1L1	known,oncogene,chimer2,cgp,ticdb,cacg,tcga,chimer4kb,chimer4pub,chimer4seq,cancer,tumor,tcga2,oncokb,mitelman,t71	further_analysis	0
+ENSG00000047932	ENSG00000047936	73	GOPC	ROS1	known,short_distance,oncogene,cosmic,chimer2,cgp,ticdb,cacg,dist200kbp,chimer4kb,chimer4pub,cancer,tumor,oncokb,mitelman,ccle	further_analysis	0
+ENSG00000205755	ENSG09000000014	32	CRLF2	IGH_locus_(b)	known,oncogene,cancer,oncokb,mitelman	further_analysis	0
+ENSG00000165731	ENSG00000168172	13	RET	HOOK3	known,oncogene,cosmic,cgp,ticdb,chimer4kb,chimer4pub,chimer4seq,cancer,tumor,mitelman,t3	further_analysis	0
+ENSG00000127914	ENSG00000157764	12	AKAP9	BRAF	known,oncogene,cosmic,chimer2,cgp,ticdb,chimer4kb,chimer4pub,chimer4seq,cancer,tumor,oncokb,mitelman,t2	further_analysis	0
+ENSG00000123268	ENSG00000182944	11	ATF1	EWSR1	known,oncogene,cosmic,cgp,ticdb,chimer4kb,chimer4pub,chimer4seq,cancer,tumor,m5,oncokb,mitelman,t1	further_analysis	0
+ENSG00000006468	ENSG00000184012	10	ETV1	TMPRSS2	known,oncogene,cosmic,chimer2,cgp,ticdb,chimer4kb,chimer4pub,chimer4seq,cancer,tumor,tcga-cancer,oncokb,mitelman,t3	further_analysis	0
+ENSG00000151702	ENSG00000182944	9	FLI1	EWSR1	known,oncogene,cosmic,cgp,ticdb,ccle2,chimer4kb,chimer4pub,chimer4seq,cancer,tumor,m6,oncokb,mitelman,ccle	further_analysis	0
+ENSG00000139083	ENSG00000140538	7	ETV6	NTRK3	known,oncogene,cosmic,chimer2,cgp,ticdb,tcga,ccle2,18cancers,chimer4kb,chimer4pub,chimer4seq,cancer,tumor,tcga-cancer,tcga2,oncokb,mitelman,pcawg,tcga3,t1	further_analysis	0
+ENSG00000019582	ENSG00000047936	6	CD74	ROS1	known,oncogene,cosmic,chimer2,cgp,ticdb,tcga,ccle2,18cancers,chimer4kb,chimer4pub,chimer4seq,cancer,tumor,tcga-cancer,tcga2,oncokb,mitelman,pcawg,t3	further_analysis	0
+ENSG00000141867	ENSG00000184507	6	BRD4	NUTM1	known,oncogene,cosmic,chimer2,cgp,ticdb,ccle2,chimer4kb,chimer4pub,chimer4seq,cancer,oncokb,mitelman,ccle,t1	further_analysis	0
+ENSG00000079432	ENSG00000260596	5	CIC	DUX4	known,cosmic,chimer2,cgp,ticdb,chimer4kb,chimer4pub,cancer,oncokb,mitelman,ccle	further_analysis	0
+ENSG00000143924	ENSG00000171094	5	EML4	ALK	known,oncogene,cosmic,chimer2,cgp,ticdb,tcga,ccle2,18cancers,chimer4kb,chimer4pub,chimer4seq,cancer,tumor,tcga-cancer,tcga2,oncokb,mitelman,pcawg,ccle,ccle3,tcga3,t1	further_analysis	0
+ENSG00000260596	ENSG09000000014	5	DUX4	IGH_locus_(b)	known,cancer,mitelman	further_analysis	0
+ENSG00000260596	ENSG09000001017	4	DUX4	IGH_locus_(k)	known,cancer,mitelman	further_analysis	0
+ENSG00000171094	ENSG00000181163	3	ALK	NPM1	known,oncogene,cosmic,chimer2,cgp,ticdb,ccle2,chimer4kb,chimer4pub,chimer4seq,cancer,tumor,oncokb,mitelman,ccle,ccle3	further_analysis	0
+ENSG00000172175	ENSG09000000014	3	MALT1	IGH_locus_(b)	known,oncogene,chimer2,cancer,oncokb,mitelman	further_analysis	0
+ENSG00000005884	ENSG00000182944	1	ITGA3	EWSR1	oncogene,cancer,tumor	skipped	0
+ENSG00000006468	ENSG00000106692	1	ETV1	FKTN	oncogene,cancer,tumor	skipped	0
+ENSG00000006468	ENSG00000135919	1	ETV1	SERPINE2	oncogene,cancer,tumor	skipped	0
+ENSG00000019582	ENSG00000149273	1	CD74	RPS3	ribosomal,cancer	skipped	0
+ENSG00000047936	ENSG00000125844	1	ROS1	RRBP1	oncogene,cancer,tumor	skipped	0
+ENSG00000070961	ENSG00000140538	1	ATP2B1	NTRK3	oncogene,cancer	skipped	0
+ENSG00000080503	ENSG00000143924	1	SMARCA2	EML4	oncogene,cancer	skipped	0
+ENSG00000085224	ENSG00000171094	1	ATRX	ALK	oncogene,cancer,tumor	skipped	0
+ENSG00000087460	ENSG00000157764	1	GNAS	BRAF	oncogene,cancer,tumor	skipped	0
+ENSG00000100316	ENSG00000127914	1	RPL3	AKAP9	ribosomal,oncogene,cancer	skipped	0
+ENSG00000102898	ENSG00000143924	1	NUTF2	EML4	oncogene,cancer	skipped	0
+ENSG00000105193	ENSG00000139083	1	RPS16	ETV6	ribosomal,oncogene,cancer,tumor,m0,multi	skipped	0
+ENSG00000116521	ENSG00000127914	1	SCAMP3	AKAP9	oncogene,cancer	skipped	0
+ENSG00000123268	ENSG00000229117	1	ATF1	RPL41	ribosomal,oncogene,cancer,m0,multi	skipped	0
+ENSG00000123268	ENSG00000256338	1	ATF1	RPL41P2	pseudogene,ribosomal,oncogene,cancer,m0,multi	skipped	0
+ENSG00000126777	ENSG00000184507	1	KTN1	NUTM1	oncogene,cancer	skipped	0
+ENSG00000127152	ENSG00000127914	1	BCL11B	AKAP9	oncogene,cancer	skipped	0
+ENSG00000127914	ENSG00000136999	1	AKAP9	CCN3	oncogene,cancer	skipped	0
+ENSG00000127914	ENSG00000167526	1	AKAP9	RPL13	ribosomal,oncogene,cancer,m0,multi	skipped	0
+ENSG00000127914	ENSG00000198804	1	AKAP9	MT-CO1	mt,oncogene,cancer	skipped	0
+ENSG00000127914	ENSG00000215030	1	AKAP9	RPL13P12	pseudogene,ribosomal,oncogene,cancer,m0,multi	skipped	0
+ENSG00000135677	ENSG00000184507	1	GNS	NUTM1	oncogene,cancer	skipped	0
+ENSG00000135919	ENSG00000184507	1	SERPINE2	NUTM1	oncogene,cancer	skipped	0
+ENSG00000143924	ENSG00000156508	1	EML4	EEF1A1	oncogene,cancer,m0,multi	skipped	0
+ENSG00000143924	ENSG00000250144	1	EML4	AC104619.3	pseudogene,oncogene,cancer,m0,multi	skipped	0
+ENSG00000151702	ENSG00000215835	1	FLI1	AL596087.1	pseudogene,oncogene,cancer,tumor,m0,multi	skipped	0
+ENSG00000156976	ENSG00000168172	1	EIF4A2	HOOK3	cancer	skipped	0
+ENSG00000157764	ENSG00000173465	1	BRAF	ZNRD2	oncogene,cancer,tumor	skipped	0
+ENSG00000157764	ENSG00000176973	1	BRAF	FAM89B	oncogene,cancer,tumor	skipped	0
+ENSG00000157764	ENSG00000184640	1	BRAF	SEPTIN9	oncogene,cancer,tumor	skipped	0
+ENSG00000168172	ENSG00000245532	1	HOOK3	NEAT1	lncrna,oncogene,cancer	skipped	0
+ENSG00000171863	ENSG00000182944	1	RPS7	EWSR1	ribosomal,oncogene,cancer,tumor,m0,multi	skipped	0
+ENSG00000171863	ENSG00000257307	1	RPS7	AL162311.2	pseudogene,ribosomal,m0,multi	skipped	0
+ENSG00000182944	ENSG00000197172	1	EWSR1	MAGEA6	oncogene,cancer,tumor,m0,multi	skipped	0
+ENSG00000182944	ENSG00000213326	1	EWSR1	RPS7P11	pseudogene,ribosomal,oncogene,cancer,tumor,m0,multi	skipped	0
+ENSG00000182944	ENSG00000221867	1	EWSR1	MAGEA3	oncogene,cancer,tumor,m0,multi	skipped	0
+ENSG00000182944	ENSG00000229133	1	EWSR1	RPS7P4	pseudogene,ribosomal,oncogene,cancer,tumor,m0,multi	skipped	0
+ENSG00000182944	ENSG00000263266	1	EWSR1	RPS7P1	pseudogene,ribosomal,oncogene,cancer,tumor,m0,multi	skipped	0
+ENSG00000184507	ENSG00000198753	1	NUTM1	PLXNB3	oncogene,cancer	skipped	0
+ENSG00000213326	ENSG00000257307	1	RPS7P11	AL162311.2	pseudogene,ribosomal,m0,multi	skipped	0
+ENSG00000229133	ENSG00000257307	1	RPS7P4	AL162311.2	pseudogene,ribosomal,m0,multi	skipped	0
+ENSG00000257307	ENSG00000263266	1	AL162311.2	RPS7P1	pseudogene,ribosomal,m0,multi	skipped	0
+
+
+
